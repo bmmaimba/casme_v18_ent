@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="teacher_form_view" model="ir.ui.view">
+            <field name="name">Partners teachers</field>
+            <field name="model">res.partner.teachers</field>
+            <field name="arch" type="xml">
+                <form string="Teachers" duplicate="0">
+                    <sheet>
+                        <div class="oe_title mb24">
+                            <field name="company_type" widget="radio" options="{'horizontal': true}" readonly="1"/>
+                            <h1>
+                                <field id="company" options="{'line_breaks': False}" widget="text" class="text-break" name="name" readonly="1" default_focus="1" placeholder="e.g. Lumber Inc" invisible="not is_company" required="type == 'contact'"/>
+                                <field id="individual" options="{'line_breaks': False}" widget="text" class="text-break" name="name" readonly="1" default_focus="1" placeholder="e.g. Brandon Freeman" invisible="is_company" required="type == 'contact'"/>
+                            </h1>
+                            <!-- <div class="o_row">
+                                <field name="name" required="1" placeholder="Name..."/>
+                            </div> -->
+                        </div>
+                        <header>
+                            <!-- <button name="action_candidate_enrolment_button" type="object" class="oe_highlight" string="Enrolled" invisible="teacher_milestone_status_id != 1" />
+                            <button name="action_candidate_placement_button" type="object" class="oe_highlight" string="Placed" invisible="teacher_milestone_status_id != 1" />
+                            <button name="action_candidate_re_enrolment_button" type="object" class="oe_highlight" string="Re-Enrolled" invisible="" />
+                            <button name="action_candidate_placement_button" type="object" class="oe_highlight" string="Placed" invisible="" />
+                            <button name="action_candidate_3_months_button" type="object" class="oe_highlight" string="3 Months" invisible="" />
+                            <button name="action_candidate_6_months_button" type="object" class="oe_highlight" string="6 Months" invisible="" />
+                            <button name="action_candidate_dropped_button" type="object" class="oe_highlight" string="Dropped" invisible="" /> -->
+                        </header>
+                        <group>
+                            <group name="teacher_bio_details" string="Bio Details">
+                                    <span name="bio_span">
+                                        <b>Bio Details</b>
+                                    </span>
+                                <field name="teacher_fname" readonly="0" required="1"/>
+                                <field name="teacher_surname" readonly="0" required="1"/>
+                                <field name="teacher_rsa_id_number" readonly="0" required="0"/>
+                                <field name="teacher_dob" readonly="0" required="0"/>
+                                <field name="teacher_age" readonly="1" required="0"/>
+                                <field name="teacher_gender" readonly="0" required="1"/>
+                                <field name="teacher_race" readonly="0" required="1"/>
+                                <field name="disability_status" readonly="0" required="0"/>
+                            </group>
+                            <group name="teacher_contact_details" string="Contact Details">
+                                    <span name="contact_span">
+                                        <b>Contact Details</b>
+                                    </span>
+                                <field name="teacher_email" readonly="0" required="0"/>
+                                <field name="teacher_mobile" readonly="0" required="0"/>
+                                <field name="teacher_phone" readonly="0" required="0"/>
+                                <field name="teacher_school_id" readonly="0" required="0"/>
+                                <field name="partner_id" invisible="0" readonly="1" required="0" options="{'no_open': False, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}" style="width: 37.5%"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="res_partner_teacher_sessions" string="Teacher Sessions">
+                                <group>
+                                    <!-- <field name="res_partner_teachers_ids" nolabel="1" colspan="2" widget="" domain="[]" no_create="0">
+                                        <list string="Teachers" editable="bottom">
+                                            <field name="id" readonly="0" required="1"/>
+                                        </list>
+                                    </field> -->
+                                </group>
+                            </page>
+                            <page string="Candidate Documents">
+                                <group>
+                                    <!-- <field name="partners_teachers_documents_ids" nolabel="1" colspan="2" widget="" domain="[]" no_create="0">
+                                        <list string="Documents" editable="bottom">
+                                            <field name="partners_teachers_document_types_id" readonly="0" required="1" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+                                            <field name="datas" string="Upload" filename="name" readonly="0" required="1"/>
+                                            <field name="name" readonly="0" required="1"/>
+                                            <field name="write_date" readonly="1" required="0"/>
+                                            <field name="create_date" readonly="1" required="0"/>
+                                            <field name="document_url" readonly="1" force_save="1"/>
+                                            <button name="download" type="object" title="download" class="fa fa-download" />
+                                            <field name="type" readonly="1" />
+                                            <field name="mimetype" readonly="1" />
+                                            <field name="partners_teachers_documents_id" readonly="1" />
+                                        </list>
+                                    </field> -->
+                                </group>
+                            </page>
+                            <page string="Cohorts">
+                                <group>
+                                    <!-- <field name="partners_cohorts_teachers_rel_ids" nolabel="1" colspan="2" widget="" domain="[]" no_create="0"  readonly="1">
+                                        <list editable="bottom" default_order="write_date desc" limit="4" create="0" delete="0">
+                                            <field name="partners_cohorts_id" readonly="0" required="1" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+                                            <field name="write_date" readonly="1"/>
+                                            <field name="res_teacher_id" readonly="1" required="1" invisible="1"/>
+                                        </list>
+                                    </field> -->
+                                </group>
+                            </page>
+                            <page string="More Info">
+                                <!-- <group>
+                                        <group>
+                                            <field name="teacher_milestone_status_id" readonly="1" required="0" invisible="0" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+                                            <field name="name" string="Full Name" readonly="1" required="1" invisible="0"/>
+                                        </group>
+                                        <group>
+                                            <field name="company_type" readonly="1" required="0" invisible="0"/>
+                                            <field name="partner_id" readonly="1" required="0" invisible="0" options="{'no_open': True, 'no_quick_create': True}"/>
+                                        </group>
+                                </group> -->
+                            </page>
+                            <page string="Milestones History">
+                                <group string="Milestones History">
+                                    <!-- <field name="partners_milestones_teachers_rel_ids" nolabel="1" colspan="2" widget="" domain="[]" no_create="1" readonly="1">
+                                        <list editable="bottom" default_order="write_date desc" limit="10">
+                                            <field name="partners_milestones_id" readonly="0" required="1" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+                                            <field name="write_date" readonly="1"/>
+                                            <field name="res_teacher_id" readonly="1" required="1" invisible="1"/>
+                                        </list>
+                                    </field> -->
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <!-- Chatter -->
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="teacher_list_view" model="ir.ui.view">
+            <field name="name">Teachers</field>
+            <field name="model">res.partner.teachers</field>
+            <field name="arch" type="xml">
+                <list string="teachers" duplicate="0">
+                    <field name="name" readonly="0" required="1"/>
+                    <field name="teacher_fname" readonly="0" required="1"/>
+                    <field name="teacher_surname" readonly="0" required="1"/>
+                    <field name="teacher_rsa_id_number" readonly="0" required="0"/>
+                    <field name="teacher_gender" readonly="0" required="1"/>
+                    <field name="teacher_race" readonly="0" required="1"/>
+                    <field name="partner_id" readonly="1" required="0" invisible="0"/>
+                    <field name="teacher_email" readonly="0" required="0"/>
+                    <field name="teacher_mobile" readonly="0" required="0"/>
+                    <field name="teacher_phone" readonly="0" required="0"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="action_res_teacher" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
+            <field name="res_model">res.partner.teachers</field>
+            <field name="view_mode">list,form,kanban,pivot,graph</field>
+            <field name="context">{}</field>
+            <field name="limit">50</field>
+			<field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create New teachers</p>
+			</field>
+        </record>
+
+    <!-- Teachers Child Menus -->
+    <menuitem id="menu_casme_teachers" name="Teachers" parent="menu_casme" action="action_res_teacher" sequence="2"/>
+
+</odoo>

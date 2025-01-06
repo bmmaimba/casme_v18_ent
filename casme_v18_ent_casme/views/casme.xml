@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <menuitem
+                name="CASME"
+                id="menu_casme"
+                web_icon="casme_v18_ent_casme,static/description/casme.png"
+                sequence="99" />
+
+        <menuitem
+                name="Configurations"
+                id="menu_casme_configurations_sub_menu"
+                parent="casme_v18_ent_casme.menu_casme"
+                sequence="99" />
+
+</odoo>

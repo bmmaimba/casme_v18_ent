@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- <record id="seq_partner_payments_payment_no" model="ir.sequence">
+			<field name="name">Partner Payments Payment No. Seq</field>
+			<field name="code">partner.payments.payment.no</field>
+			<field name="prefix">JBPAY-</field>
+			<field name="padding">4</field>
+			<field name="active" eval="True"/>
+            <field name="number_next" eval="1"/>
+            <field name="number_increment" eval="1"/>
+		</record> -->
+
+	</data>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- https://www.odoo.com/documentation/14.0/howtos/backend.html -->
+<odoo>
+    <data noupdate="0">
+
+        <record id="school_year_2020" model="school.years" forcecreate="False">
+            <field name="name">2020</field>
+            <!-- <field name="company_id" ref="base.main_company"/>
+            <field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
+            <field name="groups_id" eval="[(4, ref('base.group_user')),(4, ref('base.group_partner_manager'))]"/> -->
+        </record>
+
+        <record id="school_year_2021" model="school.years" forcecreate="False">
+            <field name="name">2021</field>
+        </record>
+
+        <record id="school_year_2022" model="school.years" forcecreate="False">
+            <field name="name">2020</field>
+        </record>
+
+        <record id="school_year_2023" model="school.years" forcecreate="False">
+            <field name="name">2023</field>
+        </record>
+
+        <record id="school_year_2024" model="school.years" forcecreate="False">
+            <field name="name">2024</field>
+        </record>
+
+        <record id="school_year_2025" model="school.years" forcecreate="False">
+            <field name="name">2025</field>
+        </record>
+
+        <record id="school_year_2026" model="school.years" forcecreate="False">
+            <field name="name">2026</field>
+        </record>
+
+        <record id="school_year_2027" model="school.years" forcecreate="False">
+            <field name="name">2027</field>
+        </record>
+
+        <record id="school_year_2028" model="school.years" forcecreate="False">
+            <field name="name">2028</field>
+        </record>
+
+        <record id="school_year_2029" model="school.years" forcecreate="False">
+            <field name="name">2029</field>
+        </record>
+
+        <record id="school_year_2030" model="school.years" forcecreate="False">
+            <field name="name">2030</field>
+        </record>
+
+	</data>
+</odoo>

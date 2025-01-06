@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="ir_mail_server_bmaimba_gmail" model="ir.mail_server">
+			<field name="name">bmaimba@gmail.com</field>
+			<field name="smtp_authentication">login</field>
+			<field name="smtp_encryption">ssl</field>
+			<field name="smtp_host">smtp.gmail.com</field>
+			<field name="smtp_port">465</field>
+			<field name="smtp_user">bmaimba@gmail.com</field>
+			<field name="smtp_pass">rtkbghypnypezjzq</field>
+			<field name="sequence">1</field>
+			<field name="active" eval="False"/>
+		</record>
+
+	</data>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- https://www.odoo.com/documentation/14.0/howtos/backend.html -->
+<odoo>
+    <data noupdate="0">
+
+        <record id="res_users_bmaimba" model="res.users" forcecreate="False">
+            <field name="name">bmaimba@gmail.com - User</field>
+            <field name="login">bmaimba@gmail.com</field>
+            <field name="email">bmaimba@gmail.com</field>
+            <field name="password">bmaimba@gmail.com</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
+            <field name="groups_id" eval="[(4, ref('base.group_user')),(4, ref('base.group_partner_manager'))]"/>
+        </record>
+
+	</data>
+</odoo>

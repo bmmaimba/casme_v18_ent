@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <record id="ir_attachment_form_inherit_member_documents" model="ir.ui.view">
+        <field name="name">ir_attachment_form_inherit_member_documents</field>
+        <field name="model">ir.attachment</field>
+        <field name="inherit_id" ref="base.view_attachment_form"/>
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='mimetype']" position="after">
+                <field name="document_member_id"/>
+                <field name="member_doc_types_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_member_documents" model="ir.actions.act_window">
+        <field name="name">Member Documents</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ir.attachment</field>
+        <field name="view_mode">tree,form,kanban,pivot,graph</field>
+        <field name="domain">[('document_member_id', '!=', False)]</field>
+    </record>
+
+    <menuitem name="Membership Documents" id="menu_member_documents" sequence="13" parent="casme_v18_ent_base.menu_config_member_data" action="action_member_documents"/>
+     -->
+</odoo>

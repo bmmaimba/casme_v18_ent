@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- https://www.odoo.com/documentation/14.0/howtos/backend.html -->
+<odoo>
+    <data noupdate="0">
+
+        <record id="school_grades_grade_1" model="school.grades" forcecreate="False">
+            <field name="name">Grade 1</field>
+            <!-- <field name="company_id" ref="base.main_company"/>
+            <field name="company_ids" eval="[(4, ref('base.main_company'))]"/>
+            <field name="groups_id" eval="[(4, ref('base.group_user')),(4, ref('base.group_partner_manager'))]"/> -->
+        </record>
+
+        <record id="school_grades_grade_2" model="school.grades" forcecreate="False">
+            <field name="name">Grade 2</field>
+        </record>
+
+        <record id="school_grades_grade_3" model="school.grades" forcecreate="False">
+            <field name="name">Grade 3</field>
+        </record>
+
+        <record id="school_grades_grade_4" model="school.grades" forcecreate="False">
+            <field name="name">Grade 4</field>
+        </record>
+
+        <record id="school_grades_grade_5" model="school.grades" forcecreate="False">
+            <field name="name">Grade 5</field>
+        </record>
+
+        <record id="school_grades_grade_6" model="school.grades" forcecreate="False">
+            <field name="name">Grade 6</field>
+        </record>
+
+        <record id="school_grades_grade_6_7" model="school.grades" forcecreate="False">
+            <field name="name">Grade 6 &amp;7</field>
+        </record>
+
+        <record id="school_grades_grade_7" model="school.grades" forcecreate="False">
+            <field name="name">Grade 7</field>
+        </record>
+
+        <record id="school_grades_grade_8" model="school.grades" forcecreate="False">
+            <field name="name">Grade 8</field>
+        </record>
+
+        <record id="school_grades_grade_9" model="school.grades" forcecreate="False">
+            <field name="name">Grade 9</field>
+        </record>
+
+        <record id="school_grades_grade_10" model="school.grades" forcecreate="False">
+            <field name="name">Grade 10</field>
+        </record>
+
+        <record id="school_grades_grade_11" model="school.grades" forcecreate="False">
+            <field name="name">Grade 11</field>
+        </record>
+
+        <record id="school_grades_grade_12" model="school.grades" forcecreate="False">
+            <field name="name">Grade 12</field>
+        </record>
+
+	</data>
+</odoo>

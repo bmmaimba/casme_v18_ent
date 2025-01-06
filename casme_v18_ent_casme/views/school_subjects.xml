@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="subject_form_view" model="ir.ui.view">
+            <field name="name">School Subjects</field>
+            <field name="model">school.subjects</field>
+            <field name="arch" type="xml">
+                <form string="Subjects" duplicate="0">
+                    <sheet>
+                        <div class="oe_title mb24">
+                            <div class="o_row">
+                            <h1>
+                                <field name="name" required="1" placeholder="Subject..."/>
+                            </h1>
+                            </div>
+                        </div>
+                        <group>
+                            <group name="subject_bio_details" string="Bio Details">
+                                    <span name="bio_span">
+                                        <b>Bio Details</b>
+                                    </span>
+                                    <!-- <field name="subject_fname" readonly="0" required="1"/>
+                                    <field name="subject_surname" readonly="0" required="1"/>
+                                    <field name="subject_rsa_id_number" readonly="0" required="0"/>
+                                    <field name="subject_dob" readonly="0" required="0"/>
+                                    <field name="subject_age" readonly="1" required="0"/>
+                                    <field name="subject_gender" readonly="0" required="1"/>
+                                    <field name="subject_race" readonly="0" required="1"/>
+                                    <field name="disability_status" readonly="0" required="0"/> -->
+                            </group>
+                            <group name="subject_contact_details" string="Contact Details">
+                                    <span name="contact_span">
+                                        <b>Contact Details</b>
+                                    </span>
+                                    <!-- <field name="subject_email" readonly="0" required="0"/>
+                                    <field name="subject_mobile" readonly="0" required="0"/>
+                                    <field name="subject_phone" readonly="0" required="0"/>
+                                    <field name="partner_id" invisible="0" readonly="1" required="0" options="{'no_open': False, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}" style="width: 37.5%"/> -->
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="more_info" string="More Info">
+                                <!-- <group>
+                                        <group>
+                                            <field name="subject_milestone_status_id" readonly="1" required="0" invisible="0" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+                                            <field name="name" string="Full Name" readonly="1" required="1" invisible="0"/>
+                                        </group>
+                                        <group>
+                                            <field name="company_type" readonly="1" required="0" invisible="0"/>
+                                            <field name="partner_id" readonly="1" required="0" invisible="0" options="{'no_open': True, 'no_quick_create': True}"/>
+                                        </group>
+                                </group> -->
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <!-- Chatter -->
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <record id="subject_list_view" model="ir.ui.view">
+            <field name="name">School Subjects</field>
+            <field name="model">school.subjects</field>
+            <field name="arch" type="xml">
+                <list string="subjects" duplicate="0">
+                    <field name="name" readonly="0" required="1"/>
+                    <!-- <field name="subject_surname" readonly="0" required="1"/>
+                    <field name="subject_gender" readonly="0" required="1"/>
+                    <field name="subject_race" readonly="0" required="1"/>
+                    <field name="subject_rsa_id_number" readonly="0" required="0"/>
+                    <field name="subject_email" readonly="0" required="0"/>
+                    <field name="subject_mobile" readonly="0" required="0"/>
+                    <field name="subject_phone" readonly="0" required="0"/>
+                    <field name="partner_id" readonly="1" required="0" invisible="0"/> -->
+                </list>
+            </field>
+        </record>
+
+        <!-- <record id="stock_scrap_list_view" model="ir.ui.view">
+            <field name="name">stock.scrap.list</field>
+            <field name="model">stock.scrap</field>
+            <field name="arch" type="xml">
+                <list multi_edit="1" sample="1" decoration-info="state == 'draft'">
+                    <field name="company_id" column_invisible="True" readonly="state == 'done'"/>
+                    <field name="product_uom_category_id" column_invisible="True"/>
+                    <field name="name" decoration-bf="1"/>
+                    <field name="date_done"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="scrap_qty" readonly="state == 'done'"/>
+                    <field name="product_uom_id" groups="uom.group_uom" readonly="state == 'done'"/>
+                    <field name="location_id" options="{'no_create': True}" groups="stock.group_stock_multi_locations" readonly="state == 'done'"/>
+                    <field name="scrap_location_id" options="{'no_create': True}" groups="stock.group_stock_multi_locations" readonly="state == 'done'"/>
+                    <field name="company_id" readonly="1" groups="base.group_multi_company"/>
+                    <field name="state" widget="badge" decoration-success="state == 'done'" decoration-muted="state == 'draft'"/>
+                </list>
+            </field>
+        </record> -->
+
+        <record id="action_school_subjects" model="ir.actions.act_window">
+            <field name="name">School Subjects</field>
+            <field name="res_model">school.subjects</field>
+            <field name="view_mode">list,form,kanban,pivot,graph</field>
+            <field name="context">{}</field>
+            <field name="limit">50</field>
+			<field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create New subjects</p>
+			</field>
+        </record>
+
+    <!-- subjects Child Menus -->
+    <menuitem id="menu_casme_school_subjects" name="Subjects" parent="menu_casme" action="action_school_subjects" sequence="6"/>
+
+</odoo>

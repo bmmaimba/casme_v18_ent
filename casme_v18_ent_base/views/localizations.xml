@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+		<!-- Views for Address -->
+		<!-- Municipality -->
+		<record id="view_address_municipality_info_filter" model="ir.ui.view">
+			<field name="name">municipality</field>
+			<field name="model">res.municipality</field>
+			<field name="arch" type="xml">
+				<search string="municipality">
+					<field name="name" />
+					<field name="city_id" />
+					<field name="province_id" />
+					<field name="country_id" />
+					<field name="urban_rural" />
+				</search>
+
+			</field>
+		</record>
+
+		<record id="view_address_municipality_info_tree" model="ir.ui.view">
+			<field name="name">view.address.municipality.info.tree</field>
+			<field name="model">res.municipality</field>
+			<field name="arch" type="xml">
+				<tree string="Municipalities">
+					<field name="name" string="Municipality" />
+					<!-- <field name="code"/> -->
+					<field name="city_id" />
+					<field name="province_id" />
+					<field name="country_id" />
+					<field name="urban_rural" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_address_municipality_info_form" model="ir.ui.view">
+			<field name="name">view.address.municipality.info.form</field>
+			<field name="model">res.municipality</field>
+			<field name="arch" type="xml">
+				<form string="Municipality">
+					<sheet>
+						<group string="Municipality Info" col="2">
+							<group>
+								<field name="name" string="Municipality" />
+								<field name="district_id" />
+								<field name="country_id" />
+								<!-- <field name="code"/> -->
+							</group>
+							<group>
+								<field name="city_id" />
+								<field name="province_id" />
+								<field name="urban_rural" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_address_municipality" model="ir.actions.act_window">
+			<field name="name">Municipalities</field>
+			<field name="res_model">res.municipality</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" eval="view_address_municipality_info_tree" />
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click To Create Municipalities.
+				</p>
+			</field>
+		</record>
+		<!-- Municipality Ends -->
+
+		<!-- Districts -->
+		<record id="view_address_district_info_tree" model="ir.ui.view">
+			<field name="name">view.address.district.info.tree</field>
+			<field name="model">res.district</field>
+			<field name="arch" type="xml">
+				<tree string="Districts">
+					<field name="name" />
+					<field name="code" />
+					<field name="province_id" />
+					<field name="country_id" />
+					<field name="urban_rural" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_address_district_info_form" model="ir.ui.view">
+			<field name="name">view.address.district.info.form</field>
+			<field name="model">res.district</field>
+			<field name="arch" type="xml">
+				<form string="Districts">
+					<sheet>
+						<group string="District Info" col="2">
+							<group>
+								<field name="name" />
+								<field name="code" />
+								<field name="urban_rural" />
+							</group>
+							<group>
+								<field name="province_id" />
+								<field name="country_id" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_address_district" model="ir.actions.act_window">
+			<field name="name">Districts</field>
+			<field name="res_model">res.district</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" eval="view_address_district_info_tree" />
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click To Create Districts.
+				</p>
+			</field>
+		</record>
+		<!-- Districts Ends -->
+		
+		<!-- Locals -->
+		<record id="view_address_local_info_filter" model="ir.ui.view">
+			<field name="name">local</field>
+			<field name="model">res.local</field>
+			<field name="arch" type="xml">
+				<search string="local">
+					<field name="name" />
+						<field name="country_id" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+						<field name="province_id" domain="[('country_id','=',country_id)]" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+						<field name="municipality_id" domain="[('province_id','=',province_id)]" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+					<field name="urban_rural" />
+				</search>
+			</field>
+		</record>
+
+		<record id="view_address_local_info_tree" model="ir.ui.view">
+			<field name="name">view.address.local.info.tree</field>
+			<field name="model">res.local</field>
+			<field name="arch" type="xml">
+				<tree string="Locals">
+					<field name="name"/>
+						<field name="country_id" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+						<field name="province_id" domain="[('country_id','=',country_id)]" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+						<field name="municipality_id" domain="[('province_id','=',province_id)]" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+					<field name="urban_rural" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_address_local_info_form" model="ir.ui.view">
+			<field name="name">view.address.local.info.form</field>
+			<field name="model">res.local</field>
+			<field name="arch" type="xml">
+				<form string="local">
+					<sheet>
+						<group string="Local Info" col="2">
+							<group>
+								<field name="name"/>
+								<field name="urban_rural" />
+							</group>
+							<group>
+								<field name="country_id" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+								<field name="province_id" domain="[('country_id','=',country_id)]" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+								<field name="municipality_id" domain="[('province_id','=',province_id)]" options="{'no_open': True, 'no_quick_create': True, 'no_create': True, 'no_create_edit':True}"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_address_local" model="ir.actions.act_window">
+			<field name="name">Locals</field>
+			<field name="res_model">res.local</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" eval="view_address_local_info_tree" />
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click To Create Locals.
+				</p>
+			</field>
+		</record>
+		<!-- Locals Ends -->
+
+		<!-- City -->
+		<record id="view_address_city_info_filter" model="ir.ui.view">
+			<field name="name">city</field>
+			<field name="model">res.city</field>
+			<field name="arch" type="xml">
+				<search string="Cities">
+					<field name="name" />
+					<field name="district_id" />
+					<field name="province_id" />
+					<field name="country_id" />
+					<field name="urban_rural" />
+				</search>
+			</field>
+		</record>
+
+		<record id="view_city_tree" model="ir.ui.view">
+			<field name="name">view.city.info.tree</field>
+			<field name="model">res.city</field>
+			<field name="arch" type="xml">
+				<tree string="Cities">
+					<field name="name" string="Name" />
+					<field name="district_id" string="Municipality" />
+					<field name="province_id" />
+					<field name="urban_rural" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_address_city_info_tree" model="ir.ui.view">
+			<field name="name">view.address.city.info.tree</field>
+			<field name="model">res.city</field>
+			<field name="arch" type="xml">
+				<tree string="Cities">
+					<field name="name" string="City" />
+					<field name="district_id" string="Municipality" />
+					<field name="province_id" />
+					<field name="country_id" />
+					<field name="urban_rural" />
+					<field name="latitude" />
+					<field name="longitude" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_address_city_info_form" model="ir.ui.view">
+			<field name="name">view.address.city.info.form</field>
+			<field name="model">res.city</field>
+			<field name="arch" type="xml">
+				<form string="Cities">
+					<sheet>
+						<group string="City Info" col="2">
+							<group>
+								<field name="name" />
+								<field name="district_id" />
+								<field name="urban_rural" />
+								<field name="latitude" />
+							</group>
+							<group>
+								<field name="province_id" />
+								<field name="country_id" />
+								<field name="longitude" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_address_city" model="ir.actions.act_window">
+			<field name="name">Cities</field>
+			<field name="res_model">res.city</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" eval="view_address_city_info_filter" />
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click To Create Cities.
+				</p>
+			</field>
+		</record>
+		<!-- City Ends -->
+
+		<!-- Suburb -->
+		<record id="view_address_suburb_info_tree" model="ir.ui.view">
+			<field name="name">view.address.suburb.info.tree</field>
+			<field name="model">res.suburb</field>
+			<field name="arch" type="xml">
+				<tree string="Suburbs">
+					<field name="name" />
+					<field name="city_id" />
+					<field name="municipality_id" />
+					<field name="district_id" />
+					<field name="province_id" />
+					<field name="country_id" />
+					<field name="postal_code" />
+					<!-- <field name="urban_rural" /> -->
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_address_suburb_info_form" model="ir.ui.view">
+			<field name="name">view.address.suburb.info.form</field>
+			<field name="model">res.suburb</field>
+			<field name="arch" type="xml">
+				<form string="Suburb">
+					<sheet>
+						<group string="Suburb Info" col="2">
+							<group>
+								<field name="name" />
+								<field name="city_id" />
+								<field name="municipality_id" />
+								<field name="urban_rural" />
+								<field name="statssa_area_code" />
+							</group>
+							<group>
+								<field name="district_id" />
+								<field name="province_id" />
+								<field name="country_id" />
+								<field name="postal_code" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- <record id="view_address_suburb_info_search" model="ir.ui.view">
+			<field name="name">view.address.suburb.info.search</field>
+			<field name="model">res.suburb</field>
+			<field name="arch" type="xml">
+				<search string="Suburb">
+					<field name="name" />
+					<field name="district_id" />
+					<field name="city_id" />
+					<field name="province_id" />
+					<group string="Group By">
+						<filter string="Province" icon="terp-personal" domain="[]"
+							context="{'group_by':'province_id'}" />
+					</group>
+				</search>
+			</field>
+		</record> -->
+
+		<record id="action_address_suburb" model="ir.actions.act_window">
+			<field name="name">Suburb</field>
+			<field name="res_model">res.suburb</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" eval="view_address_suburb_info_tree" />
+			<!-- <field name="search_view_id" ref="view_address_suburb_info_search" /> -->
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click To Create Suburbs.
+				</p>
+			</field>
+		</record>
+		<!-- Suburb Ends -->
+
+		<!-- <menuitem name="Country" id="menu_candidates_fileaddress_country"
+			parent="contacts.menu_localisation" action="base.action_country" sequence="20"/> -->
+
+        <!--Renaming Contacts App / Module Name-->
+        <!--https://openerp-server.readthedocs.io/en/latest/03_module_dev_04.html-->
+        <record model="ir.ui.menu" id="contacts.menu_country_state_partner">
+            <field name='name'>Provinces</field>
+        </record>
+
+        <!--Inherit and Rename Contacts  Action -->
+        <!--https://openerp-server.readthedocs.io/en/latest/03_module_dev_04.html-->
+        <record model="ir.actions.act_window" id="base.action_country_state">
+            <field name='name'>Provinces</field>
+        </record>
+
+		<!-- <menuitem name="Province" id="menu_candidates_fileaddress_province"
+			parent="contacts.menu_localisation" action="base.action_country_state" sequence="21" /> -->
+
+		<menuitem name="Municipalities" id="menu_candidates_fileaddress_municipality"
+			parent="contacts.menu_localisation" action="action_address_municipality" sequence="22" />
+
+		<menuitem name="Districts" id="menu_candidates_fileaddress_district"
+			parent="contacts.menu_localisation" action="action_address_district" sequence="23" />
+			
+		<menuitem name="Locals" id="menu_candidates_fileaddress_local"
+			parent="contacts.menu_localisation" action="action_address_local" sequence="24" />
+
+		<menuitem name="Cities" id="menu_candidates_fileaddress_city" parent="contacts.menu_localisation"
+			action="action_address_city" sequence="25" />
+
+		<menuitem name="Suburbs" id="menu_candidates_fileaddress_suburb" parent="contacts.menu_localisation"
+			action="action_address_suburb" sequence="26" />
+</odoo>
