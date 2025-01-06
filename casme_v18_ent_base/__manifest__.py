@@ -48,10 +48,7 @@
                 "hr_attendance",
                 "hr_timesheet",
                 "hr_hourly_cost",
-                "knowledge",
-                "knowledge",
-                "knowledge",
-                "knowledge",
+                "sign",
                 ],
     "data": [
         "security/ir.model.access.csv",
