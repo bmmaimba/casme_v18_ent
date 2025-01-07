@@ -33,4 +33,7 @@ class ResConfigSettings(models.TransientModel):
     custom_value = 'b2b'
     self.env['ir.config_parameter'].set_param('auth_signup.invitation_scope', custom_value)
 
-  auth_signup_uninvited = fields.Selection(default='b2b')
+  auth_signup_uninvited = fields.Selection([
+        ('b2b', 'On invitation'),
+        ('b2c', 'Free sign up'),
+    ], string='Customer Account', default='b2b')

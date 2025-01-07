@@ -45,10 +45,10 @@
         <function model="ir.config_parameter" name="set_param" eval="('digest.default_digest_emails', False)"/>
 
         <!-- THIS WILL UPDATE EXISTING RECORD- Function to change / set default_digest_emails to deactivated -->
-        <record id="digest.digest_digest_default" model="digest.digest">
+        <!-- <record id="digest.digest_digest_default" model="digest.digest">
             <field name="state">deactivated</field>
             <field name="periodicity">quarterly</field>
-        </record>
+        </record> -->
 
         <!-- <record id="digest.digest_digest_default" model="ir.rule">
             <field name="groups" eval="[Command.set([ref('base.group_system')])]"/>
