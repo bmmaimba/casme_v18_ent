@@ -10,28 +10,28 @@ from odoo.exceptions import UserError
 class ResPartnerLearners(models.Model):
     _name = "res.partner.learners"
     _description = 'Learners'
-    # _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _inherits = {'res.partner': 'partner_id'}
 
     #Inherited Partner for Contacts.
     partner_id = fields.Many2one('res.partner', ondelete='restrict', auto_join=True, required=True,
                                  string='RelatedPartner', help='Contact-related to Learner')
     #Learners Fields
-    # company_type = fields.Selection([('person','Individual'),('company','Company')], default="person")
-    learner_fname = fields.Char('First Name', tracking=True)
-    learner_surname = fields.Char('Surname', tracking=True)
+    company_type = fields.Selection([('person','Individual'),('company','Company')], default="person")
+    learner_fname = fields.Char('First Name')
+    learner_surname = fields.Char('Surname')
     learner_gender = fields.Selection([
         ('male', 'Male'),
         ('female', 'Female'),
         ('other', 'Other')
-    ], tracking=True)
+    ])
     learner_race = fields.Selection([
         ('A', 'African'),
         ('C', 'Coloured'),
         ('I', 'Indian'),
         ('W', 'White'),
         ('O', 'Other')
-    ], tracking=True)
+    ])
     disability_status = fields.Selection([
         ('sight', 'Sight ( even with glasses )'),
         ('hearing', 'Hearing ( even with h.aid )'),
@@ -43,15 +43,15 @@ class ResPartnerLearners(models.Model):
         ('disabled', 'Disabled but unspecified'),
         ('none', 'None'), ], string='Disability Status', default='none')
     learner_phone = fields.Char('Phone', size=10)
-    learner_mobile = fields.Char('Mobile', size=10, tracking=True)
-    learner_email = fields.Char('Email', tracking=True)
-    learner_rsa_id_number = fields.Char('ID Number', size=13, tracking=True)
-    learner_unique_id = fields.Char('Unique Learner Id ', tracking=True)
+    learner_mobile = fields.Char('Mobile', size=10)
+    learner_email = fields.Char('Email')
+    learner_rsa_id_number = fields.Char('ID Number', size=13)
+    learner_unique_id = fields.Char('Unique Learner Id ')
     learner_dob = fields.Date(string="Date of Birth", store=True)
     learner_age = fields.Integer(string="Age", store=True)
-    learner_school_id = fields.Many2one('res.partner.schools', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    learner_school_id = fields.Many2one('res.partner.schools', ondelete='restrict', auto_join=True, store=True,
                                   string='School', help='School')
-    learner_grade_id = fields.Many2one('school.grades', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    learner_grade_id = fields.Many2one('school.grades', ondelete='restrict', auto_join=True, store=True,
                                   string='Grade', help='Grade')
 
     @api.onchange('learner_fname', 'learner_surname')

@@ -10,7 +10,7 @@ from odoo.exceptions import UserError
 class SchoolGrades(models.Model):
     _name = "school.grades"
     _description = 'Grades'
-    # _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Grade', tracking=True)
+    name = fields.Char('Grade')
     res_partner_learners_ids = fields.One2many('res.partner.learners','learner_grade_id', string='Learners')

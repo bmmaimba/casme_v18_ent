@@ -10,6 +10,6 @@ from odoo.exceptions import UserError
 class SchoolYears(models.Model):
     _name = "school.years"
     _description = 'Years'
-    # _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Year', store=True, tracking=True)
+    name = fields.Char('Year', store=True)

@@ -10,40 +10,40 @@ from odoo.exceptions import UserError
 class SchoolSessions(models.Model):
     _name = "school.sessions"
     _description = 'Sessions'
-    # _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     @api.onchange('session_project_id', 'session_topic_id', 'session_school_id', 'session_subject_id', 'session_grade_id', 'session_term_id')
     def _get_onchange_school_sessions_name(self):
         self.name = str(self.session_project_id.name) + '-' + str(self.session_school_id.name) + '-' + str(self.session_subject_id.name) + '-' + str(self.session_grade_id.name) + '-' + str(self.session_term_id.name)
 
-    name = fields.Char('Session/Event Name', store=True, tracking=True, default=_get_onchange_school_sessions_name)
+    name = fields.Char('Session/Event Name', store=True, default=_get_onchange_school_sessions_name)
 
     session_type = fields.Selection([
         ('learners', 'Learners'),
         ('teachers', 'Teachers'), ], string='Session Type')
 
-    session_project_id = fields.Many2one('project.project', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    session_project_id = fields.Many2one('project.project', ondelete='restrict', auto_join=True, store=True,
                                          string='Project', help='The school associated with the session/event')
 
-    session_project_types_id = fields.Many2one('project.types', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    session_project_types_id = fields.Many2one('project.types', ondelete='restrict', auto_join=True, store=True,
                                          string='Project Type', help='The project types associated with the session/event')
 
-    session_school_id = fields.Many2one('res.partner.schools', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    session_school_id = fields.Many2one('res.partner.schools', ondelete='restrict', auto_join=True, store=True,
                                         string='School', help='The school where the session is held')
 
-    session_subject_id = fields.Many2one('school.subjects', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    session_subject_id = fields.Many2one('school.subjects', ondelete='restrict', auto_join=True, store=True,
                                          string='Subject', help='The subject of the session/event')
 
-    session_topic_id = fields.Many2one('school.topics', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    session_topic_id = fields.Many2one('school.topics', ondelete='restrict', auto_join=True, store=True,
                                          string='Topic', help='The topic of the session/event')
 
-    session_grade_id = fields.Many2one('school.grades', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    session_grade_id = fields.Many2one('school.grades', ondelete='restrict', auto_join=True, store=True,
                                        string='Grade', help='The grade level of students in the session')
 
-    session_term_id = fields.Many2one('school.terms', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    session_term_id = fields.Many2one('school.terms', ondelete='restrict', auto_join=True, store=True,
                                       string='Term', help='The academic term of the session')
 
-    session_year_id = fields.Many2one('school.years', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    session_year_id = fields.Many2one('school.years', ondelete='restrict', auto_join=True, store=True,
                                       string='Academic Year', help='The academic year of the session',
                                       default=lambda self: self._get_default_session_year()
                                       )

@@ -11,6 +11,6 @@ from odoo.exceptions import UserError
 class SchoolTopics(models.Model):
     _name = "school.topics"
     _description = 'Topics'
-    # _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Topic', store=True, tracking=True)
+    name = fields.Char('Topic', store=True)

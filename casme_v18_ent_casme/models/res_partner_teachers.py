@@ -10,28 +10,28 @@ from odoo.exceptions import UserError
 class ResPartnerTeachers(models.Model):
     _name = "res.partner.teachers"
     _description = 'Partner Teachers'
-    # _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _inherits = {'res.partner': 'partner_id'}
 
     #Inherited Partner for Contacts.
     partner_id = fields.Many2one('res.partner', ondelete='restrict', auto_join=True, required=True,
                                  string='RelatedPartner', help='Contact-related to Teacher')
     #Teachers Fields
-    # company_type = fields.Selection([('person','Individual'),('company','Company')], default="person")
-    teacher_fname = fields.Char('First Name', tracking=True)
-    teacher_surname = fields.Char('Surname', tracking=True)
+    company_type = fields.Selection([('person','Individual'),('company','Company')], default="person")
+    teacher_fname = fields.Char('First Name')
+    teacher_surname = fields.Char('Surname')
     teacher_gender = fields.Selection([
         ('male', 'Male'),
         ('female', 'Female'),
         ('other', 'Other')
-    ], tracking=True)
+    ])
     teacher_race = fields.Selection([
         ('A', 'African'),
         ('C', 'Coloured'),
         ('I', 'Indian'),
         ('W', 'White'),
         ('O', 'Other')
-    ], tracking=True)
+    ])
     disability_status = fields.Selection([
         ('sight', 'Sight ( even with glasses )'),
         ('hearing', 'Hearing ( even with h.aid )'),
@@ -43,12 +43,12 @@ class ResPartnerTeachers(models.Model):
         ('disabled', 'Disabled but unspecified'),
         ('none', 'None'), ], string='Disability Status', default='none')
     teacher_phone = fields.Char('Phone', size=10)
-    teacher_mobile = fields.Char('Mobile', size=10, tracking=True)
-    teacher_email = fields.Char('Email', tracking=True)
-    teacher_rsa_id_number = fields.Char('ID Number', size=13, tracking=True)
+    teacher_mobile = fields.Char('Mobile', size=10)
+    teacher_email = fields.Char('Email')
+    teacher_rsa_id_number = fields.Char('ID Number', size=13)
     teacher_dob = fields.Date(string="Date of Birth", store=True)
     teacher_age = fields.Integer(string="Age", store=True)
-    teacher_school_id = fields.Many2one('res.partner.schools', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    teacher_school_id = fields.Many2one('res.partner.schools', ondelete='restrict', auto_join=True, store=True,
                                   string='Employer', help='School')
 
     @api.onchange('teacher_fname', 'teacher_surname')

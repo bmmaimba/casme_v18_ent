@@ -10,11 +10,11 @@ from odoo.exceptions import UserError
 class ResPartnerLearnersSessionsRel(models.Model):
     _name = "res.partner.learners.sessions.rel"
     _description = 'res.partner.learners.sessions.rel'
-    # _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    learner_id = fields.Many2one('res.partner.learners', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    learner_id = fields.Many2one('res.partner.learners', ondelete='restrict', auto_join=True, store=True,
                                          string='Learner', help='Learner')
-    session_id = fields.Many2one('school.sessions', ondelete='restrict', auto_join=True, store=True, tracking=True,
+    session_id = fields.Many2one('school.sessions', ondelete='restrict', auto_join=True, store=True,
                                          string='Session', help='Session/event')
     session_attendance = fields.Selection([
         ('absent', 'Absent'),

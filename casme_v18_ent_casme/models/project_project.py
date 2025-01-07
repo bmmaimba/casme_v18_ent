@@ -10,4 +10,4 @@ from odoo.exceptions import UserError
 class ProjectProject(models.Model):
     _inherit = "project.project"
 
-    # name = fields.Char('Year', store=True, tracking=True)
+    # name = fields.Char('Year', store=True)

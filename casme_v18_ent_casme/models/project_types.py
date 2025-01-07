@@ -10,6 +10,6 @@ from odoo.exceptions import UserError
 class ProjectTypes(models.Model):
     _name = "project.types"
     _description = 'Project Types'
-    # _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char('Type', store=True, tracking=True)
+    name = fields.Char('Type', store=True)
